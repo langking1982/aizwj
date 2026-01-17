@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -250,9 +251,9 @@
         <div class="logo">AI CREATION</div>
         <nav class="nav-menu">
             <a href="#" class="nav-link" data-t="nav_new">New Arrivals</a>
-            <a href="#" class="nav-link" data-t="nav_toys">Art Toys</a>
-            <a href="#" class="nav-link" data-t="nav_apparel">Apparel</a>
-            <a href="#" class="nav-link" style="color: var(--pop-red);" data-t="nav_sale">Sale</a>
+            <a href="#" class="nav-link" data-t="nav_toys">AI Art Toys</a>
+            <a href="#" class="nav-link" data-t="nav_computing">Computing Center</a>
+            <a href="#" class="nav-link" data-t="nav_about">About Us</a>
         </nav>
         <div class="header-icons">
             <!-- 语言切换器 -->
@@ -371,7 +372,7 @@
             </div>
             <div class="footer-col">
                 <h4 data-t="f_company">Company</h4>
-                <a href="#" data-t="f_about">About Us</a>
+                <a href="#" data-t="nav_about">About Us</a>
                 <a href="#" data-t="f_careers">Careers</a>
             </div>
             <div class="footer-col">
@@ -390,8 +391,9 @@
             zh: {
                 top_announcement: "🎉 全场满 ¥500 免运费 // 2026 限定发售",
                 nav_new: "新品首发",
-                nav_toys: "潮流玩具",
-                nav_apparel: "潮流服饰",
+                nav_toys: "AI潮玩",
+                nav_computing: "超算中心",
+                nav_about: "关于我们",
                 nav_sale: "特惠专区",
                 hero_tag: "2026 新品",
                 hero_title: "皇家赛博<br><span>猫系列</span>",
@@ -420,9 +422,10 @@
             },
             en: {
                 top_announcement: "🎉 Free Shipping on Orders Over ¥500 // Limited Edition Drop 2026",
-                nav_new: "New Arrivals",
-                nav_toys: "Art Toys",
-                nav_apparel: "Apparel",
+                nav_new: "New Drops",
+                nav_toys: "AI Art Toys",
+                nav_computing: "Computing Center",
+                nav_about: "About Us",
                 nav_sale: "Sale",
                 hero_tag: "NEW DROP",
                 hero_title: "IMPERIAL<br><span>CYBER SERIES</span>",
@@ -451,9 +454,10 @@
             },
             ko: {
                 top_announcement: "🎉 500엔 이상 구매 시 무료 배송 // 2026 한정판 출시",
-                nav_new: "신상품",
-                nav_toys: "아트 토이",
-                nav_apparel: "의류",
+                nav_new: "신상품 출시",
+                nav_toys: "AI 아트 토이",
+                nav_computing: "슈퍼컴퓨팅 센터",
+                nav_about: "회사 소개",
                 nav_sale: "세일",
                 hero_tag: "신규 출시",
                 hero_title: "임페리얼<br><span>사이버 시리즈</span>",
@@ -482,9 +486,10 @@
             },
             jp: {
                 top_announcement: "🎉 ¥500以上のご注文で送料無料 // 2026限定ドロップ",
-                nav_new: "新着商品",
-                nav_toys: "アートトイ",
-                nav_apparel: "アパレル",
+                nav_new: "新作リリース",
+                nav_toys: "AIアートトイ",
+                nav_computing: "スーパーコンピューティングセンター",
+                nav_about: "私たちについて",
                 nav_sale: "セール",
                 hero_tag: "ニュー・ドロップ",
                 hero_title: "インペリアル<br><span>サイバーシリーズ</span>",
@@ -516,13 +521,15 @@
         function changeLanguage(lang) {
             // 1. 更新按钮状态
             document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.innerText.toLowerCase() === (lang === 'zh' ? 'zh' : lang === 'en' ? 'en' : lang === 'ko' ? 'kr' : 'jp'));
+                const btnLang = btn.innerText.toLowerCase();
+                const targetLang = (lang === 'zh' ? 'zh' : lang === 'en' ? 'en' : lang === 'ko' ? 'kr' : 'jp');
+                btn.classList.toggle('active', btnLang === targetLang);
             });
 
             // 2. 遍历所有带 data-t 属性的元素进行翻译
             document.querySelectorAll('[data-t]').forEach(el => {
                 const key = el.getAttribute('data-t');
-                if (translations[lang][key]) {
+                if (translations[lang] && translations[lang][key]) {
                     el.innerHTML = translations[lang][key];
                 }
             });
