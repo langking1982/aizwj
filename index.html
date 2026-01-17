@@ -2,365 +2,408 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI造物局 | 潮玩·未来·收藏</title>
+<title>AI造物局 | Art Toys & Collectibles</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-    /* === 孟菲斯波普风格 (Memphis Pop) 核心样式 === */
-    :root {
-        /* 高饱和度三原色 */
-        --pop-red: #FF3B30;
-        --pop-yellow: #FFCC00;
-        --pop-blue: #007AFF;
-        --pop-black: #000000;
-        --pop-white: #FFFFFF;
-        /* 物理质感：4px粗框 + 24px圆角 + 硬投影 */
-        --border: 4px solid #000000;
-        --radius: 24px;
-        --shadow: 10px 10px 0px #000000;
-        --hover-shadow: 16px 16px 0px #000000;
-    }
-
+    /* === 核心重置 === */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
     body { 
-        font-family: 'Noto Sans SC', sans-serif; 
-        background-color: var(--pop-white); 
-        color: var(--pop-black); 
-        line-height: 1.5;
-        /* 漫画网点背景 */
-        background-image: radial-gradient(#000 1px, transparent 1px);
-        background-size: 40px 40px;
+        font-family: 'Roboto', sans-serif; 
+        background-color: #fff; 
+        color: #000; 
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
     }
-
-    a { text-decoration: none; color: inherit; }
+    a { text-decoration: none; color: #000; transition: 0.2s; }
     img { display: block; width: 100%; height: auto; }
+    ul { list-style: none; }
 
-    /* === 顶部通告 (黑条) === */
+    /* === 工具类 === */
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+    .text-center { text-align: center; }
+    .uppercase { text-transform: uppercase; }
+    .bold { font-weight: 700; }
+
+    /* === 顶部通告 (Top Bar) === */
     .top-bar {
-        background: var(--pop-black); color: var(--pop-white);
-        text-align: center; padding: 12px;
-        font-weight: 900; text-transform: uppercase; letter-spacing: 2px;
-        font-size: 14px;
+        background: #000; color: #fff; text-align: center;
+        padding: 10px 0; font-size: 12px; letter-spacing: 1px; font-weight: 700;
+        text-transform: uppercase;
     }
 
-    /* === 导航栏 (白底黑框) === */
+    /* === 头部导航 (Header) === */
     .site-header {
-        background: #fff; border-bottom: var(--border);
-        padding: 15px 40px; position: sticky; top: 0; z-index: 1000;
+        position: sticky; top: 0; z-index: 1000; background: #fff;
+        border-bottom: 1px solid #e5e5e5; padding: 0;
+    }
+    .header-inner {
         display: flex; justify-content: space-between; align-items: center;
+        height: 80px; padding: 0 40px;
     }
     
-    .nav-btn {
-        font-weight: 900; text-transform: uppercase; padding: 10px 25px;
-        border: 2px solid transparent; border-radius: 50px; transition: 0.2s;
-        font-size: 16px;
-    }
-    .nav-btn:hover {
-        background: var(--pop-yellow); border: 2px solid var(--pop-black);
-        box-shadow: 4px 4px 0 var(--pop-black); transform: translate(-2px, -2px);
-    }
-
+    /* Logo - 纯黑白街头风 */
     .logo {
-        font-family: 'Anton', sans-serif; font-size: 2.8rem;
-        background: var(--pop-yellow); color: var(--pop-black);
-        padding: 5px 30px; border: var(--border); border-radius: 15px;
-        box-shadow: 6px 6px 0 var(--pop-black);
-        transform: rotate(-3deg); display: inline-block; transition: 0.3s;
+        font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700;
+        letter-spacing: 2px; color: #000; border: 2px solid #000;
+        padding: 5px 15px; display: inline-block;
     }
-    .logo:hover { transform: rotate(0deg) scale(1.05); }
-
-    /* === 核心容器 === */
-    .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
-
-    /* === 红黄蓝大色块布局 (强制背景色) === */
     
-    /* 蓝色区域 (Hero) */
-    .section-blue {
-        background-color: var(--pop-blue); padding: 80px 0;
-        border-bottom: var(--border);
-        /* 蓝色上的白色波点 */
-        background-image: radial-gradient(#fff 2px, transparent 2px); 
-        background-size: 30px 30px;
+    /* 导航菜单 */
+    .nav-menu { display: flex; gap: 30px; height: 100%; align-items: center; }
+    .nav-link {
+        font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 500;
+        text-transform: uppercase; letter-spacing: 1px; color: #000;
+        position: relative; padding: 30px 0; /* 增加点击区域 */
+    }
+    .nav-link::after {
+        content: ''; position: absolute; bottom: 25px; left: 0; width: 0; height: 2px;
+        background: #000; transition: 0.3s;
+    }
+    .nav-link:hover::after { width: 100%; }
+    
+    /* 图标区 */
+    .header-icons { display: flex; gap: 25px; align-items: center; font-size: 18px; }
+    .cart-wrapper { position: relative; }
+    .cart-count {
+        position: absolute; top: -8px; right: -8px;
+        background: #000; color: #fff; font-size: 10px; font-weight: 700;
+        width: 18px; height: 18px; border-radius: 50%;
+        display: flex; justify-content: center; align-items: center;
     }
 
-    /* 红色区域 (分类) */
-    .section-red {
-        background-color: var(--pop-red); padding: 80px 0;
-        border-bottom: var(--border);
-        /* 红色上的斜线纹理 */
-        background-image: linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1) 75%, transparent 75%, transparent); 
-        background-size: 40px 40px;
+    /* === 巨幕 Banner (Hero) === */
+    .hero {
+        position: relative; height: 650px; overflow: hidden;
+        background: #f4f4f4;
+    }
+    .hero-img {
+        width: 100%; height: 100%; object-fit: cover;
+        /* 使用更写实的赛博风格图 */
+        object-position: center;
+    }
+    .hero-content {
+        position: absolute; top: 50%; left: 80px; transform: translateY(-50%);
+        max-width: 600px; z-index: 2;
+        /* 文字阴影增加可读性 */
+        text-shadow: 0 2px 20px rgba(255,255,255,0.8); 
+    }
+    .hero-subtitle {
+        font-family: 'Roboto', sans-serif; font-size: 14px; letter-spacing: 2px;
+        margin-bottom: 15px; font-weight: 700; color: #333;
+    }
+    .hero-title {
+        font-family: 'Oswald', sans-serif; font-size: 80px; line-height: 0.9;
+        margin-bottom: 30px; text-transform: uppercase; color: #000;
+    }
+    .btn-primary {
+        display: inline-block; background: #000; color: #fff;
+        padding: 16px 40px; font-family: 'Oswald', sans-serif; font-size: 14px;
+        font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+        border: 2px solid #000; transition: 0.3s;
+    }
+    .btn-primary:hover {
+        background: transparent; color: #000;
     }
 
-    /* 白色区域 (商品) */
-    .section-white {
-        background-color: var(--pop-white); padding: 80px 0;
-        border-bottom: var(--border);
+    /* === 标题组件 === */
+    .section-header {
+        text-align: center; margin: 80px 0 50px; position: relative;
     }
-
-    /* 黄色区域 (故事) */
-    .section-yellow {
-        background-color: var(--pop-yellow); padding: 80px 0;
-        border-bottom: var(--border);
-    }
-
-    /* === 标题样式 === */
     .section-title {
-        font-family: 'Anton'; font-size: 4rem; text-transform: uppercase;
-        color: var(--pop-white); margin-bottom: 50px;
-        text-shadow: 6px 6px 0 rgba(0,0,0,0.2); 
-        -webkit-text-stroke: 3px var(--pop-black);
+        font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
     }
-    .section-white .section-title { 
-        color: var(--pop-black); text-shadow: none; -webkit-text-stroke: 0; 
-    }
+    .section-desc { color: #666; font-size: 14px; max-width: 600px; margin: 0 auto; }
 
-    /* === Hero 卡片 (巨型黑框) === */
-    .hero-card {
-        background: var(--pop-black); border: var(--border); border-radius: 40px;
-        height: 600px; position: relative; overflow: hidden;
-        box-shadow: var(--shadow); max-width: 1400px; margin: 0 auto;
-    }
-    .hero-img { 
-        width: 100%; height: 100%; object-fit: cover; opacity: 0.85; 
-        /* 使用 AI 生成的赛博城市图 */
-        background: url('https://image.pollinations.ai/prompt/cyberpunk%20forbidden%20city%20beijing%20architecture%20neon%20lights%20futuristic%20night%208k%20wallpaper?width=1400&height=800&nologo=true') center/cover;
-    }
-    .hero-text {
-        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        display: flex; flex-direction: column; justify-content: center; padding-left: 8%;
-    }
-    .tag-pill {
-        background: var(--pop-yellow); border: 3px solid var(--pop-black);
-        padding: 10px 25px; border-radius: 12px; font-weight: 900; font-size: 1.2rem;
-        transform: rotate(-2deg); box-shadow: 5px 5px 0 #fff; 
-        width: fit-content; margin-bottom: 30px;
-    }
-    .hero-h1 {
-        font-family: 'Anton'; font-size: 7rem; color: #fff; line-height: 0.9;
-        text-shadow: 8px 8px 0 #000; -webkit-text-stroke: 4px #000; margin-bottom: 40px;
-    }
-    .hero-h1 span { color: var(--pop-blue); -webkit-text-stroke: 4px #fff; text-shadow: 8px 8px 0 #000; }
-    
-    .btn-cta {
-        display: inline-block; background: var(--pop-red); color: #fff;
-        padding: 18px 50px; font-size: 1.8rem; font-weight: 900; text-transform: uppercase;
-        border: var(--border); border-radius: 60px; box-shadow: 8px 8px 0 #000;
-        transition: 0.2s; cursor: pointer; width: fit-content;
-    }
-    .btn-cta:hover {
-        transform: translate(-4px, -4px); box-shadow: 14px 14px 0 #000;
-        background: var(--pop-yellow); color: #000;
-    }
-
-    /* === 分类卡片 === */
-    .cat-grid {
-        display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;
-    }
-    .cat-card {
-        height: 450px; background: #fff; border: var(--border); border-radius: 30px;
-        overflow: hidden; position: relative; box-shadow: var(--shadow); transition: 0.3s;
-        cursor: pointer;
-    }
-    .cat-card:hover { transform: translate(-5px, -5px); box-shadow: 15px 15px 0 #000; }
-    .cat-img { width: 100%; height: 100%; object-fit: cover; }
-    .cat-label {
-        position: absolute; bottom: 30px; left: 30px;
-        background: var(--pop-white); border: 3px solid #000; padding: 10px 30px;
-        border-radius: 50px; font-weight: 900; font-size: 1.8rem;
-        box-shadow: 6px 6px 0 #000;
-    }
-
-    /* === 商品卡片 (重点！) === */
+    /* === 商品网格 (Product Grid) === */
     .product-grid {
-        display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
-        gap: 40px; 
+        display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;
+        margin-bottom: 80px;
     }
-    .p-card {
-        background: #fff; border: var(--border); border-radius: var(--radius);
-        overflow: hidden; position: relative; transition: 0.3s;
-        box-shadow: var(--shadow);
+    .product-card { 
+        position: relative; group; 
     }
-    .p-card:hover {
-        transform: translate(-5px, -10px) rotate(1deg);
-        box-shadow: var(--hover-shadow); z-index: 10;
+    .product-image-wrapper {
+        position: relative; overflow: hidden; background: #f9f9f9;
+        padding-bottom: 120%; /* 保持 4:5 比例 */
     }
-    .p-img-box {
-        height: 320px; border-bottom: var(--border); background: #eee;
-        position: relative; overflow: hidden;
+    .product-image-wrapper img {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        object-fit: cover; transition: transform 0.5s ease;
     }
-    .p-img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-    .p-card:hover .p-img-box img { transform: scale(1.1); }
+    /* 悬停放大效果 */
+    .product-card:hover .product-image-wrapper img { transform: scale(1.05); }
     
-    .price-badge {
-        position: absolute; top: 15px; right: 15px;
-        background: var(--pop-yellow); padding: 5px 15px;
-        border: var(--border); border-radius: 50px;
-        font-weight: 900; font-family: monospace; font-size: 1.4rem;
-        box-shadow: 4px 4px 0 #000; z-index: 2;
+    /* 悬停出现的黑色购买条 */
+    .quick-add-btn {
+        position: absolute; bottom: 0; left: 0; width: 100%;
+        background: rgba(0,0,0,0.9); color: #fff; text-align: center;
+        padding: 15px 0; font-family: 'Oswald', sans-serif; font-size: 13px;
+        letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+        transform: translateY(100%); transition: 0.3s ease; opacity: 0;
     }
-    
-    .p-info { padding: 25px; text-align: center; }
-    .p-title { font-weight: 900; font-size: 1.4rem; margin-bottom: 20px; text-transform: uppercase; }
-    .p-btn {
-        display: block; width: 100%; background: var(--pop-black); color: #fff;
-        padding: 15px; border-radius: 15px; border: 3px solid #000;
-        font-weight: 900; text-transform: uppercase; cursor: pointer; transition: 0.2s;
-        font-size: 1.1rem;
+    .product-card:hover .quick-add-btn { transform: translateY(0); opacity: 1; }
+
+    .product-info { padding-top: 15px; text-align: center; }
+    .product-title {
+        font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 500;
+        text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px;
     }
-    .p-card:hover .p-btn {
-        background: var(--pop-blue); transform: translate(-3px, -3px);
-        box-shadow: 6px 6px 0 #000;
+    .product-price { font-family: 'Roboto', sans-serif; color: #666; font-size: 14px; }
+    .badge-new {
+        position: absolute; top: 10px; left: 10px; background: #000; color: #fff;
+        font-size: 10px; font-weight: 700; padding: 4px 8px; text-transform: uppercase; z-index: 2;
     }
 
-    /* === 品牌故事 === */
-    .story-box {
-        display: flex; gap: 60px; align-items: center;
+    /* === 分类 Banner (Collection List) === */
+    .collection-grid {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        max-width: 1400px; margin: 0 auto 80px; padding: 0 40px;
     }
-    .story-img-container {
-        flex: 1; border: var(--border); border-radius: 40px; 
-        overflow: hidden; box-shadow: 12px 12px 0 var(--pop-blue);
-        transform: rotate(3deg); background: #000;
+    .collection-item {
+        position: relative; height: 500px; overflow: hidden; display: block;
+    }
+    .collection-img {
+        width: 100%; height: 100%; object-fit: cover; transition: 0.5s;
+    }
+    .collection-item:hover .collection-img { transform: scale(1.03); }
+    .collection-content {
+        position: absolute; bottom: 40px; left: 40px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .collection-title {
+        font-family: 'Oswald', sans-serif; font-size: 40px; font-weight: 700;
+        text-transform: uppercase; margin-bottom: 10px; line-height: 1;
+    }
+    .collection-link {
+        font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+        border-bottom: 2px solid #fff; padding-bottom: 5px;
     }
 
-    /* 移动端适配 */
+    /* === 品牌故事 (Brand Story) === */
+    .story-section {
+        background: #000; color: #fff; padding: 100px 0; text-align: center;
+    }
+    .story-content { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+    .story-title {
+        font-family: 'Oswald', sans-serif; font-size: 48px; margin-bottom: 30px;
+        text-transform: uppercase;
+    }
+    .story-text { font-size: 16px; color: #ccc; margin-bottom: 40px; line-height: 1.8; }
+
+    /* === 页脚 (Footer) === */
+    footer { background: #f9f9f9; padding: 80px 40px 40px; border-top: 1px solid #eee; }
+    .footer-grid {
+        display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+        max-width: 1400px; margin: 0 auto;
+    }
+    .footer-col h4 {
+        font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px;
+    }
+    .footer-col a {
+        display: block; color: #666; font-size: 14px; margin-bottom: 12px;
+    }
+    .footer-col a:hover { color: #000; text-decoration: underline; }
+    
+    .newsletter-form input {
+        width: 100%; padding: 12px; border: 1px solid #ccc; margin-bottom: 10px;
+        font-family: 'Roboto', sans-serif;
+    }
+    .newsletter-form button {
+        width: 100%; background: #000; color: #fff; border: none; padding: 12px;
+        font-weight: 700; text-transform: uppercase; cursor: pointer;
+    }
+
+    /* 移动端 */
     @media (max-width: 768px) {
-        .site-header { padding: 15px 20px; }
-        .nav-btn.hide-mobile { display: none; }
-        .section-title { font-size: 3rem; }
-        .hero-card { height: 500px; }
-        .hero-h1 { font-size: 3.5rem; }
-        .cat-grid { grid-template-columns: 1fr; }
-        .story-box { flex-direction: column; }
+        .header-inner { padding: 0 20px; }
+        .nav-menu { display: none; }
+        .hero-title { font-size: 48px; }
+        .product-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+        .collection-grid { grid-template-columns: 1fr; }
+        .footer-grid { grid-template-columns: 1fr; }
     }
 </style>
 </head>
 <body>
 
     <!-- 微信防屏蔽 -->
+    <div id="weixin-tip" style="display:none; position:fixed; left:0; top:0; width:100%; height:100vh; background:rgba(0,0,0,0.95); z-index:99999;">
+        <div style="text-align:right; padding:20px; color:#fff;">
+            <div style="font-size:40px;">☝️</div>
+            <h3 style="font-family:'Oswald'">OPEN IN BROWSER</h3>
+        </div>
+    </div>
     <script>
         if(navigator.userAgent.toLowerCase().indexOf('micromessenger')!==-1){
-            document.write('<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:99999;color:#fff;text-align:center;padding-top:150px;"><h1>☝️</h1><h2>请点击右上角<br>在浏览器打开</h2></div>');
+            document.getElementById('weixin-tip').style.display='block';
         }
     </script>
 
-    <!-- 顶部通告 -->
+    <!-- Top Bar -->
     <div class="top-bar">
-        🎉 FREE SHIPPING ON ORDERS OVER ¥500 /// 2026 LIMITED DROP
+        Free Shipping on Orders Over ¥500  //  Limited Edition Drop 2026
     </div>
 
-    <!-- 导航栏 -->
+    <!-- Header -->
     <header class="site-header">
-        <div style="display:flex; gap:15px;">
-            <a href="shop.html" class="nav-btn hide-mobile">全部商品</a>
-            <a href="shop.html?cat=Toys" class="nav-btn hide-mobile">潮流玩具</a>
-        </div>
-        <a href="index.html" class="logo">AI CREATION</a>
-        <div style="display:flex; gap:15px;">
-            <a href="cart.html" class="nav-btn" style="background:var(--pop-blue); color:#fff; border-color:#000;">
-                <i class="fa-solid fa-cart-shopping"></i> 购物车
-            </a>
+        <div class="header-inner container">
+            <div class="logo">AI CREATION</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link">New Arrivals</a></li>
+                    <li><a href="#" class="nav-link">Art Toys</a></li>
+                    <li><a href="#" class="nav-link">Apparel</a></li>
+                    <li><a href="#" class="nav-link" style="color: #ff3b30;">Sale</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="#" class="cart-wrapper">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- 1. 蓝色区域：Hero -->
-    <section class="section-blue">
-        <div class="container">
-            <div class="hero-card">
-                <div class="hero-img"></div>
-                <div class="hero-text">
-                    <div class="tag-pill">NEW DROP // 2026</div>
-                    <h1 class="hero-h1">LEVITATING<br><span>FUTURE</span></h1>
-                    <a href="product.html?id=1" class="btn-cta">立即抢购</a>
+    <!-- Hero Banner -->
+    <div class="hero">
+        <img src="https://image.pollinations.ai/prompt/cyberpunk%20forbidden%20city%20temple%20fusion%20clean%20high%20fashion%20photography%20white%20studio%20lighting?width=1920&height=1080&nologo=true" class="hero-img">
+        <div class="hero-content">
+            <div class="hero-subtitle">THE 2026 COLLECTION</div>
+            <h1 class="hero-title">IMPERIAL<br>CYBER CAT</h1>
+            <a href="#" class="btn-primary">Shop The Drop</a>
+        </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">New Arrivals</h2>
+            <p class="section-desc">Limited edition art toys powered by artificial intelligence.</p>
+        </div>
+
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="badge-new">New</div>
+                <div class="product-image-wrapper">
+                    <img src="https://image.pollinations.ai/prompt/luxury%20vinyl%20toy%20robot%20cat%20matte%20black%20gold%20clean%20studio%20shot?width=600&height=750&nologo=true">
+                    <div class="quick-add-btn">Quick Add +</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Miao Xiaoban - Black Gold</div>
+                    <div class="product-price">¥2,599</div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="https://image.pollinations.ai/prompt/cute%20chibi%20cat%20toy%20wearing%20emperor%20hat%20blind%20box%20style%20clean%20white%20background?width=600&height=750&nologo=true">
+                    <div class="quick-add-btn">Quick Add +</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Imperial Blind Box</div>
+                    <div class="product-price">¥69</div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="https://image.pollinations.ai/prompt/cyberpunk%20transparent%20glass%20holographic%20access%20card%20product%20shot?width=600&height=750&nologo=true">
+                    <div class="quick-add-btn">Quick Add +</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">NFC Personality Card</div>
+                    <div class="product-price">¥39</div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image-wrapper">
+                    <img src="https://image.pollinations.ai/prompt/streetwear%20hoodie%20black%20with%20minimalist%20neon%20line%20art%20fashion%20photography?width=600&height=750&nologo=true">
+                    <div class="quick-add-btn">Quick Add +</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Cyber Hoodie V2</div>
+                    <div class="product-price">¥499</div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- 2. 红色区域：分类 -->
-    <section class="section-red">
-        <div class="container">
-            <h2 class="section-title">探索宇宙</h2>
-            <div class="cat-grid">
-                <!-- 盲盒 -->
-                <div class="cat-card" onclick="location.href='shop.html?cat=BlindBox'">
-                    <img class="cat-img" src="https://image.pollinations.ai/prompt/set%20of%20cute%20chibi%20cats%20toys%20wearing%20ancient%20chinese%20dynasty%20costumes%20pop%20mart%20style%20blind%20box%203d%20render%20isometric?width=800&height=600&nologo=true">
-                    <div class="cat-label" style="background:var(--pop-yellow);">盲盒系列</div>
-                </div>
-                <!-- 服饰 -->
-                <div class="cat-card" onclick="location.href='shop.html?cat=Apparel'">
-                    <img class="cat-img" src="https://image.pollinations.ai/prompt/futuristic%20streetwear%20hoodie%20black%20with%20neon%20gold%20dragon%20embroidery%20pattern%20cyberpunk%20fashion%20photography?width=800&height=600&nologo=true">
-                    <div class="cat-label" style="background:var(--pop-blue); color:#fff;">潮流服饰</div>
+    <!-- Collections Banner -->
+    <div class="collection-grid">
+        <a href="#" class="collection-item">
+            <img src="https://image.pollinations.ai/prompt/stack%20of%20colorful%20blind%20boxes%20art%20toys%20clean%20composition?width=800&height=800&nologo=true" class="collection-img">
+            <div class="collection-content">
+                <div class="collection-title">BLIND BOXES</div>
+                <div class="collection-link">Shop Collection</div>
+            </div>
+        </a>
+        <a href="#" class="collection-item">
+            <img src="https://image.pollinations.ai/prompt/fashion%20model%20wearing%20cyberpunk%20streetwear%20in%20neon%20city%20night?width=800&height=800&nologo=true" class="collection-img">
+            <div class="collection-content">
+                <div class="collection-title">APPAREL</div>
+                <div class="collection-link">Shop Collection</div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Brand Story (Black Section) -->
+    <div class="story-section">
+        <div class="story-content">
+            <h2 class="story-title">Tech Meets Culture</h2>
+            <p class="story-text">
+                AI Creation Bureau (AI造物局) bridges the gap between traditional Forbidden City culture and future technology. 
+                We create living desk companions powered by advanced AI and magnetic levitation.
+            </p>
+            <a href="#" class="btn-primary" style="background:#fff; color:#000; border-color:#fff;">READ OUR STORY</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <a href="#">New Arrivals</a>
+                <a href="#">Best Sellers</a>
+                <a href="#">Exclusives</a>
+                <a href="#">Gift Cards</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#">Help Center</a>
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+                <a href="#">Terms</a>
+            </div>
+            <div class="footer-col">
+                <h4>Stay Connected</h4>
+                <p style="font-size:13px; color:#999; margin-bottom:10px;">Subscribe for exclusive drops.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button>Sign Up</button>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- 3. 白色区域：热销商品 -->
-    <section class="section-white">
-        <div class="container">
-            <h2 class="section-title">当下热销 🔥</h2>
-            <div class="product-grid">
-                <!-- 商品 1 -->
-                <div class="p-card">
-                    <div class="price-badge">¥2,599</div>
-                    <div class="p-img-box">
-                        <img src="https://image.pollinations.ai/prompt/3d%20render%20cute%20robotic%20cat%20toy%20wearing%20imperial%20chinese%20robe%20floating%20levitating%20cyberpunk%20product%20photography%20white%20background?width=600&height=600&nologo=true">
-                    </div>
-                    <div class="p-info">
-                        <div class="p-title">喵小伴 - 悬浮旗舰版</div>
-                        <a href="product.html?id=1" class="p-btn">加入购物车</a>
-                    </div>
-                </div>
-                <!-- 商品 2 -->
-                <div class="p-card">
-                    <div class="price-badge" style="background:var(--pop-blue); color:#fff;">¥69</div>
-                    <div class="p-img-box">
-                        <img src="https://image.pollinations.ai/prompt/set%20of%20cute%20chibi%20cats%20toys%20wearing%20ancient%20chinese%20dynasty%20costumes%20pop%20mart%20style%20blind%20box%203d%20render%20isometric?width=600&height=600&nologo=true">
-                    </div>
-                    <div class="p-info">
-                        <div class="p-title">宫廷御猫 - 盲盒系列</div>
-                        <a href="product.html?id=3" class="p-btn">加入购物车</a>
-                    </div>
-                </div>
-                <!-- 商品 3 -->
-                <div class="p-card">
-                    <div class="price-badge" style="background:var(--pop-red); color:#fff;">¥39</div>
-                    <div class="p-img-box">
-                        <img src="https://image.pollinations.ai/prompt/futuristic%20transparent%20glass%20access%20card%20with%20glowing%20golden%20chinese%20dragon%20hologram%20chip%20cyberpunk%20prop%20product%20shot?width=600&height=600&nologo=true">
-                    </div>
-                    <div class="p-info">
-                        <div class="p-title">NFC 隐藏性格解锁卡</div>
-                        <a href="product.html?id=4" class="p-btn">加入购物车</a>
-                    </div>
-                </div>
-            </div>
+        <div class="text-center" style="margin-top:60px; color:#999; font-size:12px;">
+            &copy; 2026 AI CREATION BUREAU. ALL RIGHTS RESERVED.
         </div>
-    </section>
-
-    <!-- 4. 黄色区域：品牌故事 -->
-    <section class="section-yellow">
-        <div class="container story-box">
-            <div style="flex:1;">
-                <h2 class="section-title" style="color:var(--pop-black); -webkit-text-stroke:0; text-shadow:none;">
-                    科技遇见<br><span style="color:var(--pop-red); -webkit-text-stroke:3px var(--pop-black); text-shadow:4px 4px 0 #fff;">紫禁城</span>
-                </h2>
-                <p style="font-size:1.5rem; font-weight:bold; margin-bottom:30px;">
-                </p>
-                <a href="shop.html" class="btn-cta" style="background:var(--pop-black);">探索品牌故事</a>
-            </div>
-            <div class="story-img-container">
-                <img src="https://image.pollinations.ai/prompt/traditional%20chinese%20temple%20interior%20mixed%20with%20server%20room%20cables%20cyberpunk%20aesthetic?width=800&height=600&nologo=true">
-            </div>
-        </div>
-    </section>
-
-    <footer style="background:#000; color:#fff; padding:60px 0; text-align:center; border-top:10px solid var(--pop-yellow);">
-        <div style="font-size:14px; color:#888;">&copy; 2026 AI CREATION BUREAU. ALL RIGHTS RESERVED.</div>
     </footer>
 
-    <!-- 只保留 JS 核心逻辑 -->
-    <script src="js/main.js"></script>
 </body>
 </html>
