@@ -1,4 +1,3 @@
-:::HTML_CONTENT:::
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -21,10 +20,9 @@
         --font-body: 'Inter', sans-serif;
         --header-height: 80px;
         
-        /* 扁平化核心：无框、柔和阴影、大圆角 */
         --border: none;
         --radius: 20px;
-        --shadow: 0 4px 20px rgba(0,0,0,0.08); /* 极淡的投影，营造悬浮感 */
+        --shadow: 0 4px 20px rgba(0,0,0,0.08);
         --hover-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
@@ -49,12 +47,11 @@
         text-transform: uppercase; letter-spacing: 1px; padding: 10px 0;
     }
 
-    /* === 3. 导航栏 (极简白) === */
+    /* === 3. 导航栏 === */
     .site-header {
         position: sticky; top: 0; z-index: 100;
         background: rgba(255,255,255,0.95);
         backdrop-filter: blur(10px);
-        /* 去掉底边框，用阴影代替 */
         box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         height: var(--header-height);
         display: flex; align-items: center; justify-content: space-between;
@@ -64,7 +61,6 @@
     .logo {
         font-family: var(--font-heading); font-size: 26px; font-weight: 700;
         text-transform: uppercase; letter-spacing: -0.5px;
-        /* Logo 扁平化 */
         background: var(--pop-yellow); padding: 4px 12px; border-radius: 8px;
         display: inline-block;
     }
@@ -75,18 +71,29 @@
         text-transform: uppercase; letter-spacing: 0.5px;
         position: relative; padding: 10px 15px; border-radius: 20px;
     }
-    .nav-link:hover { 
-        background: #f5f5f5; /* 只有淡灰色背景，无框 */
-        color: var(--pop-blue);
-    }
+    .nav-link:hover { background: #f5f5f5; color: var(--pop-blue); }
     
-    .header-icons { display: flex; gap: 20px; font-size: 18px; cursor: pointer; }
+    .header-icons { display: flex; gap: 20px; font-size: 18px; cursor: pointer; align-items: center; }
+
+    /* 语言切换器样式 */
+    .lang-selector {
+        font-family: var(--font-heading);
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        gap: 8px;
+        background: #f0f0f0;
+        padding: 5px 12px;
+        border-radius: 50px;
+    }
+    .lang-btn { opacity: 0.4; transition: 0.2s; }
+    .lang-btn.active { opacity: 1; color: var(--pop-blue); }
+    .lang-btn:hover { opacity: 1; }
 
     /* === 4. Hero Banner (蓝色背景层) === */
     .hero-section {
         position: relative; 
         background-color: var(--pop-blue);
-        /* 极简点阵纹理 */
         background-image: radial-gradient(rgba(255,255,255,0.2) 2px, transparent 2px);
         background-size: 30px 30px;
         padding: 40px;
@@ -96,7 +103,7 @@
         max-width: 1600px; margin: 0 auto;
         height: 600px; 
         background: #000; 
-        border-radius: 40px; /* 超大圆角 */
+        border-radius: 40px;
         position: relative; overflow: hidden;
         box-shadow: var(--shadow);
     }
@@ -104,7 +111,7 @@
     .hero-img {
         width: 100%; height: 100%; 
         object-fit: cover; object-position: center;
-        opacity: 0.95; border-radius: 0; /* 内部图片不需要再圆角 */
+        opacity: 0.95; border-radius: 0;
     }
     
     .hero-content {
@@ -116,14 +123,13 @@
         padding: 8px 16px; font-family: var(--font-heading); font-weight: 700;
         font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
         display: inline-block; margin-bottom: 20px; 
-        border-radius: 50px; /* 胶囊圆角 */
+        border-radius: 50px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     .hero-title {
         font-family: var(--font-heading); font-size: 72px; line-height: 0.95;
         margin-bottom: 30px; text-transform: uppercase; color: #fff;
     }
-    .hero-title span { color: var(--pop-blue); }
 
     .hero-btn {
         display: inline-block; background: var(--pop-white); color: var(--pop-blue);
@@ -135,12 +141,7 @@
     .hero-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
 
     /* === 5. 滑动区域通用样式 === */
-    .section-container { 
-        padding: 80px 0; 
-        overflow: hidden;
-    }
-    
-    /* 颜色变体 */
+    .section-container { padding: 80px 0; overflow: hidden; }
     .bg-yellow { background-color: var(--pop-yellow); }
     .bg-red { background-color: var(--pop-red); }
 
@@ -160,7 +161,7 @@
     }
     .section-link:hover { background: #fff; transform: translateY(-2px); }
 
-    /* === 6. 横向滚动容器 (扁平化) === */
+    /* === 6. 横向滚动容器 === */
     .scroll-wrapper {
         width: 100%;
         overflow-x: auto; 
@@ -173,64 +174,46 @@
     .scroll-wrapper::-webkit-scrollbar { display: none; }
     .scroll-wrapper.active { cursor: grabbing; }
 
-    /* === 7. 商品卡片 (核心：扁平+圆角+无框) === */
+    /* === 7. 商品卡片 === */
     .product-card {
         flex: 0 0 280px; 
         background: #fff;
-        /* 核心修改：无边框 */
         border: none;
-        border-radius: 24px; /* 统一大圆角 */
+        border-radius: 24px;
         overflow: hidden;
         position: relative;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* 柔和的高级阴影 */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         transition: 0.3s ease;
     }
-    /* 悬停只有轻微上浮 */
-    .product-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    }
+    .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
 
     .p-img-box {
         position: relative; width: 100%; height: 320px;
-        /* 核心修改：无底边框 */
-        border-bottom: none;
         background: #f8f8f8; overflow: hidden;
         display: flex; align-items: center; justify-content: center;
-        border-radius: 24px 24px 0 0; /* 仅上部圆角适配卡片 */
+        border-radius: 24px 24px 0 0;
     }
     .p-img-box img {
         width: 100%; height: 100%; object-fit: cover;
         transition: transform 0.6s ease;
         pointer-events: none;
-        border-radius: 24px 24px 0 0;
     }
     .product-card:hover .p-img-box img { transform: scale(1.08); }
 
-    /* 悬停显示的 Quick Add (扁平圆角胶囊) */
     .quick-add {
         position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%) translateY(100%);
-        width: 90%;
-        background: rgba(0,0,0,0.8); color: #fff;
+        width: 90%; background: rgba(0,0,0,0.8); color: #fff;
         text-align: center; padding: 12px 0;
         font-family: var(--font-heading); font-weight: 700; font-size: 13px;
         text-transform: uppercase; letter-spacing: 1px;
-        border-radius: 50px; /* 胶囊形状 */
-        opacity: 0; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        border-radius: 50px; opacity: 0; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .product-card:hover .quick-add { transform: translateX(-50%) translateY(0); opacity: 1; }
 
     .p-info { padding: 20px; text-align: center; }
-    .p-title {
-        font-family: var(--font-heading); font-size: 16px; font-weight: 600;
-        text-transform: uppercase; line-height: 1.3; margin-bottom: 8px;
-    }
-    .p-price { 
-        font-family: var(--font-body); font-weight: 700; font-size: 15px; 
-        color: #666;
-    }
+    .p-title { font-family: var(--font-heading); font-size: 16px; font-weight: 600; text-transform: uppercase; line-height: 1.3; margin-bottom: 8px; }
+    .p-price { font-family: var(--font-body); font-weight: 700; font-size: 15px; color: #666; }
     
-    /* 标签 (扁平圆角) */
     .badge {
         position: absolute; top: 15px; left: 15px;
         background: var(--pop-blue); color: #fff; 
@@ -246,7 +229,6 @@
     .footer-col a { display: block; color: #999; font-size: 13px; margin-bottom: 12px; }
     .footer-col a:hover { color: #fff; }
 
-    /* === Mobile === */
     @media (max-width: 900px) {
         .site-header { padding: 0 20px; } .nav-menu { display: none; }
         .hero-title { font-size: 42px; }
@@ -261,164 +243,114 @@
 <body>
 
     <!-- 顶部通告 -->
-    <div class="top-bar">🎉 Free Shipping on Orders Over ¥500 // Limited Edition Drop 2026</div>
+    <div class="top-bar" data-t="top_announcement">🎉 Free Shipping on Orders Over ¥500 // Limited Edition Drop 2026</div>
 
     <!-- 导航 -->
     <header class="site-header">
         <div class="logo">AI CREATION</div>
         <nav class="nav-menu">
-            <a href="#" class="nav-link">New Arrivals</a>
-            <a href="#" class="nav-link">Art Toys</a>
-            <a href="#" class="nav-link">Apparel</a>
-            <a href="#" class="nav-link" style="color: var(--pop-red);">Sale</a>
+            <a href="#" class="nav-link" data-t="nav_new">New Arrivals</a>
+            <a href="#" class="nav-link" data-t="nav_toys">Art Toys</a>
+            <a href="#" class="nav-link" data-t="nav_apparel">Apparel</a>
+            <a href="#" class="nav-link" style="color: var(--pop-red);" data-t="nav_sale">Sale</a>
         </nav>
         <div class="header-icons">
+            <!-- 语言切换器 -->
+            <div class="lang-selector">
+                <span class="lang-btn active" onclick="changeLanguage('zh')">ZH</span>
+                <span class="lang-btn" onclick="changeLanguage('en')">EN</span>
+                <span class="lang-btn" onclick="changeLanguage('ko')">KR</span>
+                <span class="lang-btn" onclick="changeLanguage('jp')">JP</span>
+            </div>
             <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-solid fa-cart-shopping"></i>
         </div>
     </header>
 
-    <!-- 1. 蓝色 Hero (背景层) -->
+    <!-- 1. 蓝色 Hero -->
     <section class="hero-section">
         <div class="hero-card">
             <img src="https://image.pollinations.ai/prompt/cinematic%20wide%20shot%20of%20a%20luxury%20glossy%20black%20and%20gold%20robot%20cat%20collectible%20toy%20standing%20in%20a%20white%20minimalist%20gallery%20studio%20lighting?width=1920&height=1080&nologo=true" class="hero-img">
             <div class="hero-content">
-                <div class="hero-tag">NEW DROP</div>
-                <h1 class="hero-title">IMPERIAL<br><span>CYBER SERIES</span></h1>
-                <button class="hero-btn">SHOP COLLECTION</button>
+                <div class="hero-tag" data-t="hero_tag">NEW DROP</div>
+                <h1 class="hero-title" data-t="hero_title">IMPERIAL<br><span>CYBER SERIES</span></h1>
+                <button class="hero-btn" data-t="hero_btn">SHOP COLLECTION</button>
             </div>
         </div>
     </section>
 
-    <!-- 2. 黄色 Latest Launch (背景层) -->
+    <!-- 2. 黄色 Latest Launch -->
     <section class="section-container bg-yellow">
         <div class="section-header">
-            <h2 class="section-title">Latest Launch</h2>
-            <a href="#" class="section-link">View all</a>
+            <h2 class="section-title" data-t="latest_title">Latest Launch</h2>
+            <a href="#" class="section-link" data-t="view_all">View all</a>
         </div>
         
-        <!-- 滑动容器 (浮在背景上) -->
         <div class="scroll-wrapper">
-            <!-- 1 -->
+            <!-- Product 1 -->
             <div class="product-card">
-                <div class="badge">New</div>
+                <div class="badge" data-t="badge_new">New</div>
                 <div class="p-img-box">
                     <img src="https://image.pollinations.ai/prompt/luxury%20black%20vinyl%20toy%20robot%20cat%20matte%20finish%20vertical%20product%20shot%20white%20background?width=600&height=750&nologo=true">
-                    <div class="quick-add">Quick Add +</div>
+                    <div class="quick-add" data-t="quick_add">Quick Add +</div>
                 </div>
                 <div class="p-info">
-                    <div class="p-title">Miao Xiaoban (Black Gold)</div>
-                    <div class="p-price">$299</div>
+                    <div class="p-title" data-t="p1_title">Miao Xiaoban (Black Gold)</div>
+                    <div class="p-price">¥2,599</div>
                 </div>
             </div>
-            <!-- 2 -->
+            <!-- Product 2 -->
             <div class="product-card">
                 <div class="p-img-box">
-                    <img src="https://image.pollinations.ai/prompt/cute%20chibi%20cat%20emperor%20toy%20blind%20box%20style%20vertical%20product%20shot%20white%20background?width=600&height=750&nologo=true">
-                    <div class="quick-add">Quick Add +</div>
+                    <img src="https://image.pollinations.ai/prompt/cute%20chibi%20cat%20emperor%20toy%20blind%20box%20style%20clean%20white%20background?width=600&height=750&nologo=true">
+                    <div class="quick-add" data-t="quick_add">Quick Add +</div>
                 </div>
                 <div class="p-info">
-                    <div class="p-title">Imperial Blind Box</div>
-                    <div class="p-price">$19</div>
+                    <div class="p-title" data-t="p2_title">Imperial Blind Box Series</div>
+                    <div class="p-price">¥69</div>
                 </div>
             </div>
-            <!-- 3 -->
+            <!-- Product 3 -->
             <div class="product-card">
+                <div class="badge" data-t="badge_hot">Hot</div>
                 <div class="p-img-box">
-                    <img src="https://image.pollinations.ai/prompt/transparent%20glass%20holographic%20card%20vertical%20product%20shot%20white%20background?width=600&height=750&nologo=true">
-                    <div class="quick-add">Quick Add +</div>
+                    <img src="https://image.pollinations.ai/prompt/cyberpunk%20transparent%20glass%20holographic%20access%20card%20product%20shot%20white%20background?width=600&height=750&nologo=true">
+                    <div class="quick-add" data-t="quick_add">Quick Add +</div>
                 </div>
                 <div class="p-info">
-                    <div class="p-title">NFC Access Card</div>
-                    <div class="p-price">$9</div>
-                </div>
-            </div>
-            <!-- 4 -->
-            <div class="product-card">
-                <div class="p-img-box">
-                    <img src="https://image.pollinations.ai/prompt/white%20porcelain%20robot%20cat%20toy%20minimalist%20vertical%20shot?width=600&height=750&nologo=true">
-                    <div class="quick-add">Quick Add +</div>
-                </div>
-                <div class="p-info">
-                    <div class="p-title">Miao Xiaoban (Porcelain)</div>
-                    <div class="p-price">$159</div>
-                </div>
-            </div>
-            <!-- 5 -->
-            <div class="product-card">
-                <div class="p-img-box">
-                    <img src="https://image.pollinations.ai/prompt/futuristic%20mecha%20cat%20toy%20blue%20neon%20vertical%20shot?width=600&height=750&nologo=true">
-                    <div class="quick-add">Quick Add +</div>
-                </div>
-                <div class="p-info">
-                    <div class="p-title">Mecha Cat V2</div>
-                    <div class="p-price">$399</div>
+                    <div class="p-title" data-t="p3_title">NFC Personality Card</div>
+                    <div class="p-price">¥39</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. 红色 In Stock (背景层) -->
+    <!-- 3. 红色 In Stock -->
     <section class="section-container bg-red">
         <div class="section-header">
-            <h2 class="section-title">In Stock</h2>
-            <a href="#" class="section-link">View all</a>
+            <h2 class="section-title" data-t="stock_title">In Stock</h2>
+            <a href="#" class="section-link" data-t="view_all">View all</a>
         </div>
         
         <div class="scroll-wrapper">
-            <!-- A -->
             <div class="product-card">
                 <div class="p-img-box">
                     <img src="https://image.pollinations.ai/prompt/streetwear%20hoodie%20black%20fashion%20photography%20clean%20background%20vertical?width=600&height=750&nologo=true">
-                    <div class="quick-add">Quick Add +</div>
+                    <div class="quick-add" data-t="quick_add">Quick Add +</div>
                 </div>
                 <div class="p-info">
-                    <div class="p-title">Cyber Hoodie</div>
-                    <div class="p-price">$89</div>
+                    <div class="p-title" data-t="p4_title">Cyber Hoodie V2</div>
+                    <div class="p-price">¥499</div>
                 </div>
             </div>
-            <!-- B -->
             <div class="product-card">
                 <div class="p-img-box">
                     <img src="https://image.pollinations.ai/prompt/collectible%20sneakers%20cyberpunk%20style%20vertical%20shot%20white%20bg?width=600&height=750&nologo=true">
-                    <div class="quick-add">Quick Add +</div>
+                    <div class="quick-add" data-t="quick_add">Quick Add +</div>
                 </div>
                 <div class="p-info">
-                    <div class="p-title">Gravity Sneakers</div>
-                    <div class="p-price">$299</div>
-                </div>
-            </div>
-            <!-- C -->
-            <div class="product-card">
-                <div class="p-img-box">
-                    <img src="https://image.pollinations.ai/prompt/art%20toy%20display%20case%20acrylic%20led%20vertical%20shot%20white%20bg?width=600&height=750&nologo=true">
-                    <div class="quick-add">Quick Add +</div>
-                </div>
-                <div class="p-info">
-                    <div class="p-title">LED Display Case</div>
-                    <div class="p-price">$49</div>
-                </div>
-            </div>
-            <!-- D -->
-            <div class="product-card">
-                <div class="p-img-box">
-                    <img src="https://image.pollinations.ai/prompt/cyberpunk%20mask%20prop%20replica%20vertical%20shot%20white%20bg?width=600&height=750&nologo=true">
-                    <div class="quick-add">Quick Add +</div>
-                </div>
-                <div class="p-info">
-                    <div class="p-title">Oni Cyber Mask</div>
-                    <div class="p-price">$129</div>
-                </div>
-            </div>
-            <!-- E -->
-            <div class="product-card">
-                <div class="p-img-box">
-                    <img src="https://image.pollinations.ai/prompt/futuristic%20backpack%20black%20techwear%20style%20vertical%20shot?width=600&height=750&nologo=true">
-                    <div class="quick-add">Quick Add +</div>
-                </div>
-                <div class="p-info">
-                    <div class="p-title">Tactical Bag</div>
-                    <div class="p-price">$359</div>
+                    <div class="p-title" data-t="p5_title">Gravity Sneakers</div>
+                    <div class="p-price">¥2,599</div>
                 </div>
             </div>
         </div>
@@ -428,23 +360,23 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>Shop</h4>
-                <a href="#">New Arrivals</a>
-                <a href="#">Best Sellers</a>
+                <h4 data-t="f_shop">Shop</h4>
+                <a href="#" data-t="nav_new">New Arrivals</a>
+                <a href="#" data-t="f_bestsellers">Best Sellers</a>
             </div>
             <div class="footer-col">
-                <h4>Support</h4>
-                <a href="#">Help Center</a>
-                <a href="#">Shipping</a>
+                <h4 data-t="f_support">Support</h4>
+                <a href="#" data-t="f_help">Help Center</a>
+                <a href="#" data-t="f_shipping">Shipping</a>
             </div>
             <div class="footer-col">
-                <h4>Company</h4>
-                <a href="#">About Us</a>
-                <a href="#">Careers</a>
+                <h4 data-t="f_company">Company</h4>
+                <a href="#" data-t="f_about">About Us</a>
+                <a href="#" data-t="f_careers">Careers</a>
             </div>
             <div class="footer-col">
-                <h4>Newsletter</h4>
-                <p style="color:#999; margin-bottom:10px;">Sign up for exclusive drops.</p>
+                <h4 data-t="f_newsletter">Newsletter</h4>
+                <p style="color:#999; margin-bottom:10px;" data-t="f_subscribe">Sign up for exclusive drops.</p>
             </div>
         </div>
         <div style="text-align: center; margin-top: 60px; color: #666; font-size: 12px;">
@@ -452,8 +384,158 @@
         </div>
     </footer>
 
-    <!-- 鼠标拖拽逻辑 -->
     <script>
+        // --- 1. 多语言字典 ---
+        const translations = {
+            zh: {
+                top_announcement: "🎉 全场满 ¥500 免运费 // 2026 限定发售",
+                nav_new: "新品首发",
+                nav_toys: "潮流玩具",
+                nav_apparel: "潮流服饰",
+                nav_sale: "特惠专区",
+                hero_tag: "2026 新品",
+                hero_title: "皇家赛博<br><span>猫系列</span>",
+                hero_btn: "立即选购",
+                latest_title: "最近发布",
+                stock_title: "现货供应",
+                view_all: "查看全部",
+                quick_add: "快速加入 +",
+                badge_new: "新品",
+                badge_hot: "热门",
+                p1_title: "喵小伴 - 黑金旗舰版",
+                p2_title: "宫廷御猫 - 盲盒系列",
+                p3_title: "NFC 性格解锁卡",
+                p4_title: "赛博卫衣 V2",
+                p5_title: "反重力球鞋",
+                f_shop: "选购",
+                f_support: "服务支持",
+                f_company: "关于我们",
+                f_newsletter: "订阅中心",
+                f_bestsellers: "热销排行榜",
+                f_help: "帮助中心",
+                f_shipping: "物流说明",
+                f_about: "品牌故事",
+                f_careers: "加入我们",
+                f_subscribe: "获取最新的限定发售通知"
+            },
+            en: {
+                top_announcement: "🎉 Free Shipping on Orders Over ¥500 // Limited Edition Drop 2026",
+                nav_new: "New Arrivals",
+                nav_toys: "Art Toys",
+                nav_apparel: "Apparel",
+                nav_sale: "Sale",
+                hero_tag: "NEW DROP",
+                hero_title: "IMPERIAL<br><span>CYBER SERIES</span>",
+                hero_btn: "SHOP COLLECTION",
+                latest_title: "Latest Launch",
+                stock_title: "In Stock",
+                view_all: "View all",
+                quick_add: "Quick Add +",
+                badge_new: "New",
+                badge_hot: "Hot",
+                p1_title: "Miao Xiaoban (Black Gold)",
+                p2_title: "Imperial Blind Box Series",
+                p3_title: "NFC Personality Card",
+                p4_title: "Cyber Hoodie V2",
+                p5_title: "Gravity Sneakers",
+                f_shop: "Shop",
+                f_support: "Support",
+                f_company: "Company",
+                f_newsletter: "Newsletter",
+                f_bestsellers: "Best Sellers",
+                f_help: "Help Center",
+                f_shipping: "Shipping",
+                f_about: "Our Story",
+                f_careers: "Careers",
+                f_subscribe: "Sign up for exclusive drops."
+            },
+            ko: {
+                top_announcement: "🎉 500엔 이상 구매 시 무료 배송 // 2026 한정판 출시",
+                nav_new: "신상품",
+                nav_toys: "아트 토이",
+                nav_apparel: "의류",
+                nav_sale: "세일",
+                hero_tag: "신규 출시",
+                hero_title: "임페리얼<br><span>사이버 시리즈</span>",
+                hero_btn: "지금 쇼핑하기",
+                latest_title: "최신 런칭",
+                stock_title: "재고 있음",
+                view_all: "모두 보기",
+                quick_add: "빠른 추가 +",
+                badge_new: "신상",
+                badge_hot: "인기",
+                p1_title: "묘소반 - 블랙 골드",
+                p2_title: "궁중 어묘 - 블라인드 박스",
+                p3_title: "NFC 성격 해제 카드",
+                p4_title: "사이버 후드 V2",
+                p5_title: "중력 방지 운동화",
+                f_shop: "쇼핑",
+                f_support: "고객 지원",
+                f_company: "회사 정보",
+                f_newsletter: "뉴스레터",
+                f_bestsellers: "베스트셀러",
+                f_help: "고객센터",
+                f_shipping: "배송 안내",
+                f_about: "브랜드 스토리",
+                f_careers: "채용 정보",
+                f_subscribe: "단독 출시 소식을 받아보세요."
+            },
+            jp: {
+                top_announcement: "🎉 ¥500以上のご注文で送料無料 // 2026限定ドロップ",
+                nav_new: "新着商品",
+                nav_toys: "アートトイ",
+                nav_apparel: "アパレル",
+                nav_sale: "セール",
+                hero_tag: "ニュー・ドロップ",
+                hero_title: "インペリアル<br><span>サイバーシリーズ</span>",
+                hero_btn: "今すぐ購入",
+                latest_title: "最新のリリース",
+                stock_title: "在庫あり",
+                view_all: "すべて見る",
+                quick_add: "クイック追加 +",
+                badge_new: "新作",
+                badge_hot: "人気",
+                p1_title: "ミャオ小伴 - ブラックゴールド",
+                p2_title: "宮廷御猫 - ブラインドボックス",
+                p3_title: "NFC性格解除カード",
+                p4_title: "サイバーフーディー V2",
+                p5_title: "重力防止スニーカー",
+                f_shop: "ショップ",
+                f_support: "サポート",
+                f_company: "会社概要",
+                f_newsletter: "ニュースレター",
+                f_bestsellers: "ベストセラー",
+                f_help: "ヘルプセンター",
+                f_shipping: "配送について",
+                f_about: "ブランドストーリー",
+                f_careers: "採用情報",
+                f_subscribe: "限定発売のお知らせを受け取る。"
+            }
+        };
+
+        function changeLanguage(lang) {
+            // 1. 更新按钮状态
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.innerText.toLowerCase() === (lang === 'zh' ? 'zh' : lang === 'en' ? 'en' : lang === 'ko' ? 'kr' : 'jp'));
+            });
+
+            // 2. 遍历所有带 data-t 属性的元素进行翻译
+            document.querySelectorAll('[data-t]').forEach(el => {
+                const key = el.getAttribute('data-t');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // 保存选择
+            localStorage.setItem('preferred_lang', lang);
+        }
+
+        // 初始化语言
+        const savedLang = localStorage.getItem('preferred_lang') || 'zh';
+        document.addEventListener('DOMContentLoaded', () => changeLanguage(savedLang));
+
+        // --- 2. 鼠标拖拽逻辑 ---
         const sliders = document.querySelectorAll('.scroll-wrapper');
         sliders.forEach(slider => {
             let isDown = false;
