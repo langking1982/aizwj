@@ -1,0 +1,92 @@
+/* Kidrobot 风格核心样式 */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+SC:wght@400;700;900&display=swap');
+
+:root {
+    --brand-gold: #FFD700;
+    --brand-black: #000000;
+    --brand-white: #ffffff;
+    --cyber-blue: #00f3ff;
+    --border-color: #e5e5e5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    color: var(--brand-black);
+    line-height: 1.5;
+    background-color: #fff;
+    padding-top: 80px; /* 给固定导航栏留位置 */
+}
+
+a { text-decoration: none; color: inherit; transition: 0.2s; }
+ul { list-style: none; }
+
+/* === Header (由 JS 动态加载) === */
+header {
+    position: fixed; top: 0; left: 0; width: 100%;
+    background: rgba(255,255,255,0.98);
+    border-bottom: 3px solid var(--brand-black);
+    z-index: 1000;
+    padding: 15px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-family: 'Anton', sans-serif; font-size: 2rem; text-transform: uppercase; border: 2px solid #000; padding: 0 10px; }
+.nav-menu { display: flex; gap: 30px; }
+.nav-menu a { font-weight: 900; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
+.nav-menu a:hover, .nav-icons a:hover { color: var(--brand-gold); }
+.nav-icons { display: flex; gap: 20px; font-size: 1.2rem; }
+.cart-count { background: var(--brand-black); color: #fff; font-size: 0.7rem; padding: 2px 6px; border-radius: 50%; vertical-align: top; }
+
+/* === Footer === */
+footer { background: #111; color: #fff; padding: 60px 5%; margin-top: 80px; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+.footer-col h4 { color: var(--brand-gold); margin-bottom: 20px; text-transform: uppercase; }
+.footer-col a { color: #888; display: block; margin-bottom: 10px; font-size: 0.9rem; }
+.footer-col a:hover { color: #fff; }
+
+/* === 通用组件 === */
+.container { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
+.section-title { font-family: 'Anton', sans-serif; font-size: 3rem; text-transform: uppercase; margin-bottom: 40px; text-align: center; }
+.btn-primary {
+    display: inline-block; background: var(--brand-black); color: #fff;
+    padding: 12px 30px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;
+    border: 2px solid var(--brand-black); cursor: pointer;
+}
+.btn-primary:hover { background: transparent; color: #000; }
+
+/* === 产品卡片 === */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 30px; }
+.product-card { border: 1px solid #eee; position: relative; transition: 0.3s; background: #fff; }
+.product-card:hover { box-shadow: 10px 10px 0 #000; transform: translateY(-5px); border-color: #000; }
+.p-img-box { height: 280px; overflow: hidden; background: #f4f4f4; position: relative; }
+.p-img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.product-card:hover .p-img-box img { transform: scale(1.05); }
+.p-info { padding: 15px; text-align: center; }
+.p-title { font-weight: 700; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 5px; }
+.p-price { font-family: monospace; color: #666; font-size: 1.1rem; }
+
+/* === 详情页独有 === */
+.product-detail-container { display: flex; gap: 50px; padding: 80px 5%; flex-wrap: wrap; }
+.detail-gallery { flex: 1; min-width: 400px; }
+.detail-main-img { width: 100%; background: #f4f4f4; border: 1px solid #eee; }
+.detail-info { flex: 1; min-width: 300px; }
+.detail-title { font-family: 'Anton', sans-serif; font-size: 3.5rem; line-height: 1; margin-bottom: 20px; text-transform: uppercase; }
+.detail-price { font-size: 2rem; color: var(--brand-gold); font-weight: 900; margin-bottom: 30px; font-family: monospace; }
+.detail-desc { color: #666; margin-bottom: 40px; line-height: 1.8; }
+.buy-actions { display: flex; gap: 20px; align-items: center; }
+.qty-input { padding: 12px; width: 60px; text-align: center; border: 2px solid #000; font-weight: bold; }
+
+/* === 购物车页 === */
+.cart-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+.cart-table th { text-align: left; padding: 15px; border-bottom: 2px solid #000; text-transform: uppercase; }
+.cart-table td { padding: 15px; border-bottom: 1px solid #eee; }
+.cart-summary { background: #f9f9f9; padding: 30px; text-align: right; }
+.cart-total { font-size: 2rem; font-weight: 900; margin-bottom: 20px; }
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    header { padding: 15px 20px; }
+    .nav-menu { display: none; } /* 暂略：移动端菜单需JS控制 */
+    .product-detail-container { flex-direction: column; }
+}

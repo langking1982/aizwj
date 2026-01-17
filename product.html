@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail | AI造物局</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header></header>
+
+    <div id="product-detail" class="container product-detail-container">
+        <!-- 左侧图 -->
+        <div class="detail-gallery">
+            <img id="detail-img" class="detail-main-img" src="" alt="">
+        </div>
+        
+        <!-- 右侧信息 -->
+        <div class="detail-info">
+            <h1 id="detail-title" class="detail-title">Loading...</h1>
+            <div id="detail-price" class="detail-price">...</div>
+            <p id="detail-desc" class="detail-desc">...</p>
+            
+            <div class="buy-actions">
+                <input type="number" id="qty" class="qty-input" value="1" min="1">
+                <button id="add-to-cart" class="btn-primary" style="width:100%;">ADD TO CART</button>
+            </div>
+            
+            <div style="margin-top: 30px; font-size: 0.9rem; color: #888;">
+                <p><i class="fa-solid fa-truck"></i> Free Shipping on orders over ¥500</p>
+                <p><i class="fa-solid fa-shield-halved"></i> 1 Year Warranty</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

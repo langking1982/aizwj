@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | AI造物局</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header></header>
+
+    <div class="container" style="padding-top: 50px; min-height: 60vh;">
+        <h1 class="section-title">Your Cart</h1>
+        
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th width="15%">Image</th>
+                    <th>Product</th>
+                    <th>Price / Qty</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- JS 填充购物车项 -->
+            </tbody>
+        </table>
+
+        <div class="cart-summary">
+            <div style="font-size: 1.2rem;">SUBTOTAL</div>
+            <div id="cart-total" class="cart-total">¥0.00</div>
+            <p style="margin-bottom: 20px; color: #666;">Shipping & taxes calculated at checkout</p>
+            <button class="btn-primary" onclick="alert('即将跳转到支付网关（模拟）')">CHECKOUT</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
