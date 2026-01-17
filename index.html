@@ -3,130 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI造物局 | 潮流玩具与未来收藏品</title>
-    <!-- 引入全局样式 -->
+    <title>AI造物局 | 潮玩·未来·收藏</title>
+    <!-- 引入核心样式 -->
     <link rel="stylesheet" href="css/style.css">
     <!-- 引入图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- 引入谷歌字体 -->
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
-    
-    <style>
-        /* 首页特定样式覆盖 */
-        body { font-family: 'Noto Sans SC', sans-serif; background: #fff; color: #000; padding-top: 0; }
-        
-        .top-notice {
-            background: #000; color: #fff; text-align: center; 
-            padding: 10px 0; font-size: 13px; font-weight: 700; letter-spacing: 1px;
-        }
-
-        .site-header {
-            border-bottom: 4px solid #000; padding: 0 40px; height: 90px;
-            display: flex; justify-content: space-between; align-items: center;
-            background: #fff; position: sticky; top: 0; z-index: 1000;
-        }
-        .nav-left, .nav-right { display: flex; gap: 25px; flex: 1; align-items: center; }
-        .nav-right { justify-content: flex-end; }
-        .nav-item { 
-            text-transform: uppercase; font-weight: 900; font-size: 15px; cursor: pointer; 
-            position: relative;
-        }
-        .nav-item:hover { color: #FFD700; }
-        
-        .site-logo {
-            font-family: 'Anton', sans-serif; font-size: 32px; letter-spacing: 2px;
-            border: 4px solid #000; padding: 5px 15px; transform: skew(-5deg);
-            background: #000; color: #fff; text-decoration: none;
-        }
-        .site-logo span { color: #FFD700; }
-
-        /* AI 生成的巨幕背景 */
-        .hero-banner {
-            height: 650px; position: relative; display: flex; align-items: center;
-            /* Prompt: cyberpunk forbidden city beijing architecture neon lights futuristic night 8k wallpaper */
-            background: url('https://image.pollinations.ai/prompt/cyberpunk%20forbidden%20city%20beijing%20architecture%20neon%20lights%20futuristic%20night%208k%20wallpaper?width=1920&height=1080&nologo=true') no-repeat center/cover;
-            border-bottom: 4px solid #000;
-        }
-        .hero-overlay {
-            position: absolute; top:0; left:0; width:100%; height:100%;
-            background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%);
-        }
-        .hero-content {
-            position: relative; z-index: 2; color: #fff; margin-left: 8%; max-width: 600px;
-        }
-        .hero-tag {
-            background: #FFD700; color: #000; display: inline-block; 
-            padding: 8px 16px; font-weight: 900; font-size: 14px; margin-bottom: 25px;
-            border: 2px solid #000; box-shadow: 4px 4px 0 #fff;
-        }
-        .hero-title {
-            font-size: 72px; line-height: 1; font-weight: 900; margin-bottom: 20px;
-            text-shadow: 4px 4px 0 #000;
-        }
-        .hero-btn {
-            background: #fff; color: #000; padding: 18px 50px; font-weight: 900; font-size: 18px;
-            border: 3px solid #000; display: inline-block; margin-top: 30px;
-            box-shadow: 6px 6px 0 #000; transition: 0.2s;
-        }
-        .hero-btn:hover { transform: translate(2px, 2px); box-shadow: 4px 4px 0 #000; }
-
-        .category-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr); 
-            border-bottom: 4px solid #000;
-        }
-        .cat-item {
-            height: 400px; position: relative; border-right: 4px solid #000; overflow: hidden;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .cat-item:last-child { border-right: none; }
-        .cat-img { 
-            width: 100%; height: 100%; object-fit: cover; transition: 0.5s; 
-            filter: grayscale(100%); 
-        }
-        .cat-item:hover .cat-img { transform: scale(1.05); filter: grayscale(0%); }
-        .cat-overlay {
-            position: absolute; text-align: center; pointer-events: none;
-        }
-        .cat-title {
-            background: #000; color: #fff; font-size: 36px; font-weight: 900; 
-            padding: 10px 30px; transform: skew(-10deg); border: 2px solid #fff;
-        }
-
-        .product-section { padding: 80px 5%; background: #fff; }
-        .section-header { 
-            display: flex; justify-content: space-between; align-items: flex-end; 
-            margin-bottom: 50px; border-bottom: 4px solid #000; padding-bottom: 20px;
-        }
-        .section-title { font-size: 48px; font-weight: 900; text-transform: uppercase; line-height: 1; }
-        
-        .brand-story {
-            display: flex; background: #000; color: #fff; border-top: 4px solid #000; border-bottom: 4px solid #000;
-        }
-        .story-img { 
-            flex: 1; 
-            /* Prompt: traditional chinese temple interior mixed with server room cables cyberpunk aesthetic */
-            background: url('https://image.pollinations.ai/prompt/traditional%20chinese%20temple%20interior%20mixed%20with%20server%20room%20cables%20cyberpunk%20aesthetic?width=1000&height=1000&nologo=true') center/cover; 
-            min-height: 600px; border-right: 4px solid #fff; 
-        }
-        .story-text { flex: 1; padding: 80px; display: flex; flex-direction: column; justify-content: center; }
-
-        footer { background: #000; color: #fff; padding: 80px 5%; border-top: 10px solid #FFD700; }
-        .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
-        .footer-title { color: #FFD700; font-weight: 900; font-size: 18px; margin-bottom: 20px; text-transform: uppercase; }
-        .footer-link { display: block; color: #999; margin-bottom: 12px; font-size: 14px; font-weight: 500; }
-        .footer-link:hover { color: #fff; text-decoration: underline; }
-
-        @media (max-width: 768px) {
-            .site-header { padding: 0 20px; height: 70px; }
-            .nav-left, .nav-right { display: none; }
-            .site-logo { margin: 0 auto; }
-            .hero-title { font-size: 40px; }
-            .category-grid { grid-template-columns: 1fr; }
-            .cat-item { border-right: none; border-bottom: 4px solid #000; height: 300px; }
-            .brand-story { flex-direction: column; }
-            .footer-cols { grid-template-columns: 1fr 1fr; }
-        }
-    </style>
 </head>
 <body>
 
@@ -134,7 +15,7 @@
     <div id="weixin-tip" style="display:none; position:fixed; left:0; top:0; width:100%; height:100vh; background:rgba(0,0,0,0.95); z-index:99999;">
         <div style="text-align:right; padding:20px; color:#fff;">
             <div style="font-size:40px;">☝️</div>
-            <h3>请在浏览器打开</h3>
+            <h3>请在浏览器打开以获得最佳体验</h3>
         </div>
     </div>
     <script>
@@ -143,169 +24,152 @@
         }
     </script>
 
-    <div class="top-notice">
-        全场满 ¥500 免运费 | 2026 龙年限定系列 震撼首发
-    </div>
-
-    <!-- 导航栏 (手动内联以确保中文显示，避免被 JS 覆盖) -->
-    <header class="site-header">
-        <div class="nav-left">
-            <div class="nav-item" onclick="window.location.href='shop.html'">全部商品</div>
-            <div class="nav-item" onclick="window.location.href='shop.html?cat=Toys'">潮流玩具</div>
-            <div class="nav-item" style="color: #FFD700;">限定发售</div>
-        </div>
-        
-        <a href="index.html" class="site-logo">
-            AI CREATION <span>造物局</span>
-        </a>
-
-        <div class="nav-right">
-            <div class="nav-item">搜索</div>
-            <div class="nav-item" onclick="window.location.href='cart.html'">
-                购物车 (<span class="cart-count">0</span>)
-            </div>
-        </div>
-    </header>
-
-    <!-- 巨幕 Banner -->
-    <div class="hero-banner">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-tag">2026 新品发布 // 赛博御猫</div>
-            <h1 class="hero-title">悬浮未来<br>重新定义陪伴</h1>
-            <p style="font-size: 18px; margin-bottom: 40px; opacity: 0.9; font-weight: 500;">
-                这不是玩具，这是来自 2026 年的数字生命。搭载 AI 情感芯片与磁悬浮全息技术，让紫禁城的猫在你的桌面苏醒。
-            </p>
-            <a href="product.html?id=1" class="hero-btn">立即抢购</a>
+    <!-- 顶部黄色跑马灯 -->
+    <div style="background:var(--pop-yellow); border-bottom:3px solid var(--pop-black); overflow:hidden; padding:10px 0; font-weight:900; text-transform:uppercase; font-size: 14px; color: #000;">
+        <div style="white-space:nowrap; animation:marquee 20s linear infinite;">
+            🎉 全场满 ¥500 免运费  ///  🚀 2026 赛博御猫限定发售中  ///  🔥 新会员首单 9 折  ///  👾 AI 情感芯片 2.0 上线  ///  📦 顺丰包邮极速达
         </div>
     </div>
+    <style>@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }</style>
 
-    <!-- 分类入口 -->
-    <div class="category-grid">
-        <div class="cat-item">
-            <!-- AI 生成的分类图：盲盒 -->
-            <img src="https://image.pollinations.ai/prompt/set%20of%20cute%20chibi%20cats%20toys%20wearing%20ancient%20chinese%20dynasty%20costumes%20pop%20mart%20style%20blind%20box%203d%20render%20isometric?width=1000&height=1000&nologo=true" class="cat-img">
-            <div class="cat-overlay">
-                <div class="cat-title">盲盒系列</div>
-            </div>
-            <a href="shop.html?cat=BlindBox" style="position:absolute; width:100%; height:100%;"></a>
-        </div>
-        <div class="cat-item">
-            <!-- AI 生成的分类图：服饰 -->
-            <img src="https://image.pollinations.ai/prompt/futuristic%20streetwear%20hoodie%20black%20with%20neon%20gold%20dragon%20embroidery%20pattern%20cyberpunk%20fashion%20photography?width=1000&height=1000&nologo=true" class="cat-img">
-            <div class="cat-overlay">
-                <div class="cat-title">潮流服饰</div>
-            </div>
-            <a href="shop.html?cat=Apparel" style="position:absolute; width:100%; height:100%;"></a>
-        </div>
-    </div>
+    <!-- 导航栏 (由 js/main.js 自动填充，保持全站统一) -->
+    <header class="site-header"></header>
 
-    <section class="product-section">
-        <div class="section-header">
-            <h2 class="section-title">当下热销</h2>
-            <a href="shop.html" style="font-weight:900; border-bottom:3px solid #FFD700; font-size:18px;">查看全部商品</a>
-        </div>
-
-        <div class="product-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-            <!-- 产品 1 (旗舰版) -->
-            <div class="product-card" style="border:2px solid #000; position:relative; transition:0.3s;">
-                <div style="background:#FFD700; color:#000; position:absolute; top:15px; left:15px; padding:5px 10px; font-weight:900; border:2px solid #000; z-index:2;">热销冠军</div>
-                <a href="product.html?id=1" style="display:block;">
-                    <div style="height:350px; overflow:hidden; border-bottom:2px solid #000;">
-                        <img src="https://image.pollinations.ai/prompt/3d%20render%20cute%20robotic%20cat%20toy%20wearing%20imperial%20chinese%20robe%20floating%20levitating%20cyberpunk%20product%20photography%20white%20background?width=600&height=600&nologo=true" style="width:100%; height:100%; object-fit:cover;">
-                    </div>
-                    <div style="padding:20px; text-align:center;">
-                        <h3 style="font-size:18px; font-weight:900; margin-bottom:5px;">喵小伴 - 悬浮旗舰版</h3>
-                        <div style="font-family:monospace; font-size:20px; font-weight:bold; color:#666;">¥2,599</div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- 产品 2 (盲盒) -->
-            <div class="product-card" style="border:2px solid #000; position:relative;">
-                <a href="product.html?id=3" style="display:block;">
-                    <div style="height:350px; overflow:hidden; border-bottom:2px solid #000;">
-                        <img src="https://image.pollinations.ai/prompt/set%20of%20cute%20chibi%20cats%20toys%20wearing%20ancient%20chinese%20dynasty%20costumes%20pop%20mart%20style%20blind%20box%203d%20render%20isometric?width=600&height=600&nologo=true" style="width:100%; height:100%; object-fit:cover;">
-                    </div>
-                    <div style="padding:20px; text-align:center;">
-                        <h3 style="font-size:18px; font-weight:900; margin-bottom:5px;">宫廷御猫 - 盲盒系列</h3>
-                        <div style="font-family:monospace; font-size:20px; font-weight:bold; color:#666;">¥69</div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- 产品 3 (配件) -->
-            <div class="product-card" style="border:2px solid #000; position:relative;">
-                <div style="background:#000; color:#fff; position:absolute; top:15px; left:15px; padding:5px 10px; font-weight:900; z-index:2;">稀有配件</div>
-                <a href="product.html?id=4" style="display:block;">
-                    <div style="height:350px; overflow:hidden; border-bottom:2px solid #000;">
-                        <img src="https://image.pollinations.ai/prompt/futuristic%20transparent%20glass%20access%20card%20with%20glowing%20golden%20chinese%20dragon%20hologram%20chip%20cyberpunk%20prop%20product%20shot?width=600&height=600&nologo=true" style="width:100%; height:100%; object-fit:cover;">
-                    </div>
-                    <div style="padding:20px; text-align:center;">
-                        <h3 style="font-size:18px; font-weight:900; margin-bottom:5px;">NFC 隐藏性格解锁卡</h3>
-                        <div style="font-family:monospace; font-size:20px; font-weight:bold; color:#666;">¥39</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="brand-story">
-        <div class="story-img"></div>
-        <div class="story-text">
-            <h2 style="font-size:56px; line-height:1; font-weight:900; color:#FFD700; margin-bottom:30px;">科技遇见<br>紫禁城</h2>
-            <p style="font-size:18px; line-height:1.6; color:#ccc; margin-bottom:40px;">
-                我们不制造冷冰冰的机器。AI造物局致力于将故宫传承百年的文化灵魂，注入最前沿的磁悬浮与AI技术中。<br><br>
-                每一只“喵小伴”都内置了独一无二的性格算法，它不仅仅是摆件，更是你桌面上的健康顾问与情感伴侣。
-            </p>
-            <a href="shop.html" class="hero-btn" style="align-self:flex-start;">探索品牌故事</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-cols">
-            <div>
-                <div class="footer-title">选购商品</div>
-                <a href="#" class="footer-link">新品首发</a>
-                <a href="#" class="footer-link">热销排行榜</a>
-                <a href="#" class="footer-link">盲盒系列</a>
-                <a href="#" class="footer-link">限定周边</a>
-            </div>
-            <div>
-                <div class="footer-title">客户服务</div>
-                <a href="#" class="footer-link">订单追踪</a>
-                <a href="#" class="footer-link">配送说明</a>
-                <a href="#" class="footer-link">退换货政策</a>
-                <a href="#" class="footer-link">联系我们</a>
-            </div>
-            <div>
-                <div class="footer-title">关于我们</div>
-                <a href="#" class="footer-link">品牌故事</a>
-                <a href="#" class="footer-link">加入我们</a>
-                <a href="#" class="footer-link">媒体报道</a>
-            </div>
-            <div>
-                <div class="footer-title">订阅我们</div>
-                <p style="color:#999; font-size:14px; margin-bottom:15px;">订阅即可获得新品发售提醒及独家优惠。</p>
-                <div style="display:flex;">
-                    <input type="email" placeholder="输入您的邮箱" style="padding:10px; width:100%; border:none;">
-                    <button style="background:#FFD700; border:none; padding:0 15px; font-weight:bold; cursor:pointer;">提交</button>
+    <!-- Hero Banner: 蓝色背景 + 巨型圆角卡片 -->
+    <div style="padding: 40px 5%; background: var(--pop-blue); background-image: radial-gradient(rgba(255,255,255,0.2) 10%, transparent 11%); background-size: 30px 30px;">
+        <div style="max-width:1400px; margin:0 auto; background:#000; border-radius:40px; height:700px; position:relative; overflow:hidden; border:4px solid var(--pop-black); box-shadow: 10px 10px 0 rgba(0,0,0,0.2);">
+            <!-- 背景图：赛博紫禁城 -->
+            <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:url('https://image.pollinations.ai/prompt/cyberpunk%20forbidden%20city%20beijing%20architecture%20neon%20lights%20futuristic%20night%208k%20wallpaper?width=1920&height=1080&nologo=true') center/cover; opacity:0.8;"></div>
+            
+            <!-- 内容 -->
+            <div class="hero-banner-content" style="position:relative; z-index:2; height:100%; display:flex; flex-direction:column; justify-content:center; padding-left:80px; width:100%; max-width: 900px;">
+                <div style="background:var(--pop-yellow); color:#000; display:inline-block; padding:10px 20px; font-weight:900; font-size:1.2rem; transform:rotate(-2deg); border:3px solid #000; border-radius:15px; box-shadow:5px 5px 0 #fff; align-self:flex-start; margin-bottom:30px;">
+                    NEW DROP // 2026
+                </div>
+                <h1 style="font-family:'Anton'; font-size: clamp(4rem, 8vw, 7rem); color:#fff; line-height:0.9; text-transform:uppercase; margin-bottom:30px; text-shadow:6px 6px 0 #000; -webkit-text-stroke: 3px #000;">
+                    Levitating<br><span style="color:var(--pop-blue); text-shadow:6px 6px 0 #000; -webkit-text-stroke: 3px #fff;">Future</span>
+                </h1>
+                <p style="color:#fff; font-size:1.5rem; font-weight:bold; margin-bottom:50px; text-shadow:3px 3px 0 #000; max-width:600px; background: rgba(0,0,0,0.6); padding: 20px; border-radius: 20px; border: 3px solid #fff; box-shadow: 6px 6px 0 #000;">
+                    故宫御猫 × 磁悬浮黑科技。<br>这不只是玩具，这是你桌面的守护神。
+                </p>
+                <div>
+                    <a href="product.html?id=1" class="btn-primary" style="background:var(--pop-red); border-color:#000;">立即抢购</a>
                 </div>
             </div>
         </div>
-        <div style="text-align:center; margin-top:60px; color:#555; font-size:12px;">
-            &copy; 2026 AI造物局 (AI CREATION BUREAU). 版权所有.
-        </div>
-    </footer>
+    </div>
 
+    <!-- 红色区域：分类入口 -->
+    <section class="section-red">
+        <div class="section-header" style="max-width:1400px; margin:0 auto;">
+            <h2 class="section-title" style="color: #fff;">探索宇宙</h2>
+            <a href="shop.html" class="btn-primary btn-secondary" style="font-size:1rem; padding:12px 30px;">查看全部</a>
+        </div>
+        
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap:40px; max-width:1400px; margin:0 auto;">
+            <!-- 分类卡片 1 -->
+            <div style="background:#fff; height:450px; border-radius:30px; border:4px solid #000; position:relative; overflow:hidden; box-shadow:8px 8px 0 rgba(0,0,0,0.3); transition:0.3s; cursor: pointer;" onclick="window.location.href='shop.html?cat=BlindBox'">
+                <img src="https://image.pollinations.ai/prompt/set%20of%20cute%20chibi%20cats%20toys%20wearing%20ancient%20chinese%20dynasty%20costumes%20pop%20mart%20style%20blind%20box%203d%20render%20isometric?width=800&height=800&nologo=true" style="width:100%; height:100%; object-fit:cover; transition: 0.5s;">
+                <div style="position:absolute; bottom:30px; left:30px; background:var(--pop-yellow); padding:10px 30px; border:3px solid #000; border-radius:50px; font-weight:900; font-size:1.5rem; color:#000; box-shadow:4px 4px 0 #000;">
+                    盲盒系列
+                </div>
+            </div>
+            <!-- 分类卡片 2 -->
+            <div style="background:#fff; height:450px; border-radius:30px; border:4px solid #000; position:relative; overflow:hidden; box-shadow:8px 8px 0 rgba(0,0,0,0.3); transition:0.3s; cursor: pointer;" onclick="window.location.href='shop.html?cat=Apparel'">
+                <img src="https://image.pollinations.ai/prompt/futuristic%20streetwear%20hoodie%20black%20with%20neon%20gold%20dragon%20embroidery%20pattern%20cyberpunk%20fashion%20photography?width=800&height=800&nologo=true" style="width:100%; height:100%; object-fit:cover; transition: 0.5s;">
+                <div style="position:absolute; bottom:30px; left:30px; background:var(--pop-blue); padding:10px 30px; border:3px solid #000; border-radius:50px; font-weight:900; font-size:1.5rem; color:#fff; box-shadow:4px 4px 0 #000;">
+                    潮流穿搭
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 白色区域：热销单品 -->
+    <section class="section-white">
+        <div class="container" style="max-width:1400px; margin:0 auto;">
+            <div class="section-header">
+                <h2 class="section-title" style="color:var(--pop-black);">当下热销 🔥</h2>
+            </div>
+            
+            <div class="product-grid">
+                <!-- 商品 1 -->
+                <div class="product-card">
+                    <div class="price-tag">¥2,599</div>
+                    <a href="product.html?id=1">
+                        <div class="p-img-box">
+                            <img src="https://image.pollinations.ai/prompt/3d%20render%20cute%20robotic%20cat%20toy%20wearing%20imperial%20chinese%20robe%20floating%20levitating%20cyberpunk%20product%20photography%20white%20background?width=600&height=600&nologo=true">
+                        </div>
+                        <div class="p-info">
+                            <div class="p-title">喵小伴 - 悬浮旗舰版</div>
+                            <div class="p-btn">加入购物车</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 商品 2 -->
+                <div class="product-card">
+                    <div class="price-tag" style="background:var(--pop-blue); color:#fff;">¥69</div>
+                    <a href="product.html?id=3">
+                        <div class="p-img-box">
+                            <img src="https://image.pollinations.ai/prompt/set%20of%20cute%20chibi%20cats%20toys%20wearing%20ancient%20chinese%20dynasty%20costumes%20pop%20mart%20style%20blind%20box%203d%20render%20isometric?width=600&height=600&nologo=true">
+                        </div>
+                        <div class="p-info">
+                            <div class="p-title">宫廷御猫 - 盲盒系列</div>
+                            <div class="p-btn">加入购物车</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 商品 3 -->
+                <div class="product-card">
+                    <div class="price-tag" style="background:var(--pop-red); color:#fff;">¥39</div>
+                    <a href="product.html?id=4">
+                        <div class="p-img-box">
+                            <img src="https://image.pollinations.ai/prompt/futuristic%20transparent%20glass%20access%20card%20with%20glowing%20golden%20chinese%20dragon%20hologram%20chip%20cyberpunk%20prop%20product%20shot?width=600&height=600&nologo=true">
+                        </div>
+                        <div class="p-info">
+                            <div class="p-title">NFC 隐藏性格解锁卡</div>
+                            <div class="p-btn">加入购物车</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- 更多入口 -->
+                <div class="product-card" style="background:#f0f0f0; border-style:dashed; display:flex; align-items:center; justify-content:center;">
+                    <a href="shop.html" style="text-align:center; padding:40px;">
+                        <div style="font-size:3rem; margin-bottom:20px; color:#ccc;">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                        <div style="font-weight:900; font-size:1.5rem; text-transform:uppercase;">浏览全部商品</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 黄色区域：品牌故事 -->
+    <section class="section-yellow" style="border-bottom:none;">
+        <div class="container" style="max-width:1400px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:60px;">
+            <div style="flex:1; min-width:300px;">
+                <h2 class="section-title" style="font-size:3.5rem; margin-bottom:30px;">科技遇见<br><span style="color:var(--pop-red);">紫禁城</span></h2>
+                <p style="font-size:1.2rem; font-weight:bold; line-height:1.8; margin-bottom:40px;">
+                    我们不制造冷冰冰的机器。AI造物局致力于将故宫传承百年的文化灵魂，注入最前沿的磁悬浮与AI技术中。<br><br>
+                    每一只“喵小伴”都内置了独一无二的性格算法，它不仅仅是摆件，更是你桌面上的健康顾问与情感伴侣。
+                </p>
+                <a href="shop.html" class="btn-primary" style="background:var(--pop-black);">探索品牌故事</a>
+            </div>
+            <div style="flex:1; min-width:300px;">
+                <div style="border:4px solid var(--pop-black); border-radius:40px; overflow:hidden; box-shadow:12px 12px 0 var(--pop-blue); transform:rotate(3deg); transition:0.3s;">
+                    <img src="https://image.pollinations.ai/prompt/traditional%20chinese%20temple%20interior%20mixed%20with%20server%20room%20cables%20cyberpunk%20aesthetic?width=800&height=600&nologo=true" style="width:100%; display:block;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 (由 js/main.js 自动填充) -->
+    <footer></footer>
+
+    <!-- 核心逻辑 -->
     <script src="js/main.js"></script>
-    <script>
-        // 强制刷新购物车角标 (因为我们手写了Header，需要手动触发一次更新)
-        document.addEventListener('DOMContentLoaded', () => {
-            if(typeof updateCartCount === 'function') {
-                updateCartCount();
-            }
-        });
-    </script>
 </body>
 </html>
